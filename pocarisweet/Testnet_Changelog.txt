@@ -1,0 +1,81 @@
+V3 Testnet Changelog
+
+Updates on the frontend: 
+
+- Added a max button when withdrawing/deallocating capital
+
+- The leverage popup now has the ability to set the leverage by
+	1. Sliding
+	2. incrementing/decrementing
+	3. typing it.
+
+- Added a slider that allows you to pick allocation amounts between 0-100%. 
+  Where proximate clicks will snap to those values and/or the 25, 50 and 75% marks. 
+  Slider is intelligent enough to determine if 100% represents your max balance or the max units. 
+
+- Above slider is completely optional, we’ve added a toggler to switch between it and the default mode.
+
+- Improved the performance when creating RFQ’s and/or closing positions. 
+  Previously, it was fully Subgraph-based which was severely laggy in nature. 
+  Now, we’re using a combination between Subgraphs & aggressive on-chain fetching which allows for instantaneous updates. 
+  Due to the aggressive nature this feature is still under scrutiny, as some RPCs may dislike it. 
+  If you experience any issues with it please report it to us. 
+- Added EntryPrice of your positions to the Open Positions tab.
+
+- Added the Liquidation price of your positions to the Open Positions tab.
+
+- Rearranged the columns in the  Positions and RFQ’s tabs. 
+
+- Your position Entry Price is now drawn on the chart. Added a toggle button to the panel to hide/show said positions. 
+
+- Settings are now hydrated into your browser’s local storage. Meaning, on page refresh, your settings are restored. 
+
+- A user reported having closed their position twice because of the Subgraph lag issue. Despite our efforts to mitigate the Subgraph issue, 
+  we’ve also added a cooldown on requests to close as a fallback mechanism. Regardless, hedger was unaffected by this behaviour. 
+
+- Similarly, we will be adding the timeout to the contracts as well in order to mitigate spam attacks.
+ 
+- In Account Overview, ‘margin locked’ has been changed to ‘total margin at risk’
+
+- Added a ‘speedometer’ on Account Overview to display a user’s cross margin health. 
+  This is only visible if the user is in Cross mode. 
+
+- Fixed an issue with clicking away from the leverage popup where the popup would hide itself. 
+
+- A lot of RFQs got stuck because the hedger was unable to pay for his gas. 
+  The Long/Short buttons are now disabled if the Hedger is running low on gas, with a text label indicating this. 
+  We’re working closely with the Gelato team to make sure he’ll never run out again.
+
+- Fixed an issue with the calculation of the liquidation price. 
+
+- Other minor bug patches & UI improvements.
+
+Work in progress / open requests:
+
+- A user has requested for a mechanism that allows them to top up their locked margin when they’re near liquidation. 
+  This can be combated by either manual or automated intervention. In the next update, the manual option will be integrated. 
+  The automated option will be left to third party vendors, and in light of this request, dSynths will explore offering this as a service.
+
+- An advanced interface (or rather a simple one, depending on your background) that allows users to work with lotSizes instead of baseUnits. 
+
+- Currently, the slippage is hardcoded at 0.3% in the background. We will be adding a slippage toggler in the next update. 
+  However, the UI is already getting crowded, so it’s hard to find a spot for it. 
+  If you have any suggestions on where to put it, please share it with us!
+
+- We’ve made tiny improvements on the mobile layout but it’s still not complete. 
+  Our plan is to finalise the UI and all of its components prior to making it responsive for mobile users. 
+
+- We’re working on injecting the hedger’s prices into the chart in order to make it dynamic & tied to your own entries. 
+  This will be added in due time when it’s ready.
+
+- We are exploring the idea of setting up a communication channel between hedger <> frontend, 
+  which allows us to inform users of a hedger’s behaviour & decisions. Implementation TBD.
+
+Denied feedback requests: 
+- A user has requested a mechanism that resets the leverage when switching pairs to prevent ‘unexpected leverage’. 
+  It’s an anti-pattern and we believe that fixing the leverage causes less damage than resetting it on a per-market basis causes.
+
+
+
+
+

@@ -1,0 +1,124 @@
+Solution:
+
+Step1:
+Identify that the cyan color is different from the rest of the colors, then
+identify the alternating red green blue scheme for the butterfly. Then all the sudden you realize
+that it corresponds to the term RGB, and you get the RGB color of the cyan color
+and you realize its 
+
+0, 223, 152
+
+You add 3 to the first number, you subtract 26 from the second number, you add 8 to the third number
+
+you are left with:
+
+3, 197, 160
+
+You then combine these numbers to get 3197160
+
+Step2:
+On the background of the image there is a very very faint 03/jan/2009, which was 
+when the first bitcoin block was mined. You sha256 the hash of the first bitcoin block
+(thats what the 256 is for), and you repeat this hash process 3197160 times.
+You will use the hash for step 3.
+
+RESULT HASH OF ITERATION 1: 204c10024e659c933967cc7c880f7437bc5a39c541581a2edccf993056d42a4d
+
+Step 3:
+
+Convert hash to a string and run the ternary operator on the puzzle on it (n > 7 ? 0 : n):
+204c10024e650c033067cc7c000f7437bc5a30c541501a2edccf003056d42a4d (letters are unchanged)
+
+Now seperate the number into sets of two, representing a list of two digit numbers:
+['20', '4c', '10', '02', '4e', '65', '0c', '03', '30', '67', 'cc', '7c', '00', '0f', '74', '37', 'bc', '5a', '30', 'c5', '41', '50', '1a', '2e', 'dc', 'cf', '00', '30', '56', 'd4', '2a', '4d']
+
+Each of these numbers stands for a letter in the standard american alphabet (a,b,c,d,e...). If number is greater than 26, 27 would be "a" again (it loops). Some of these are hexadecimal and are converted to decimal before looking up the letter on alphabet.
+
+Resulting string should be:
+gyqcaxmdwzwuapmdgmwpncaumzawieqz
+
+Step 4:
+Repeat steps 2 and 3 recusively 60 times (last two digits of 3197160). Everytime using the result from step 3 as the new hash for step 2 (rather than the bitcoin block)
+After doing this you should be left with the following string:
+
+0 gyqcaxmdwzwuapmdgmwpncaumzawieqz
+1 ivmxgvefklngriacxnsazcayqmpgicxk
+2 wmnvromveacqxopzvnxypkwrqesyieux
+3 lvlilxesjsfnbcfitileoocvcqbgcfqs
+4 xhyhwxaisklwadnchaylhgvcwelilmme
+5 nfqxjoinctrgcwytqqeyfubedusjlcdn
+6 fghxtlxcxeeoaxqliczqswhkplkoilsj
+7 unknwfjtfkdduuurnpacqkwkyimwdjzp
+8 zpxqqpogvzfmeqmpnswcaalgjwbeeqca
+9 cpgbiqmnrbbwyulbqvvuahlhnureglzo
+10 nroalehemdwsqgueinwuelcvqiqcouwr
+11 ewsqxdxjgaysaqghheehoqrehjirmkpq
+12 ogceqgbeyfddnshippjzlaraqnqwkamx
+13 evbalnewmqwvundajmnnagdoxagdwioe
+14 zaduaqdkqxuclmfffhnxfgfvudjlalsb
+15 wgtkkqozgebtetiwldgjcefgcbrkvqpq
+16 qdawkigiewekpkppemxpwmtpntodkcrq
+17 bocaazscgmbbeuyjbkehnhrvctrmsmup
+18 uoxnvcrczvkkmcplekmpmfhoklfabqki
+19 dbtrdvhwwiqalcufbixeqbhrefufnfbi
+20 wmofcfapwgjbxlsgclguzxpthqpxmgsw
+21 rujedfbgtknerwtmlbpwgymqihddvdat
+22 scxxuqaqovwkqtmhkcyichibdiqnntag
+23 lxgpwlkrzwwknggahaacgundlpqrfabq
+24 bqzxuojqogtjuthefukkscouamrcunhk
+25 adcrurmxhmnazwdflvhwrgrsybcmahmm
+26 rwdeattxneekshuqazfutkjxbcticgca
+27 fhwdvhsnspqbhikfihjzhlcyclgzohcc
+28 gjossagceqoekayfqdashpzxiieekwgs
+29 sgxvdlkbhgtbplmadgkgxobilqkucnni
+30 hnvghotjcmynqhemrtjdbgeiuqgawlus
+31 bwhiiskobbbjsnfhuugrgaimgakgmtwb
+32 jogqvahgbpaaeostbrakhkpdaawgnufq
+33 lpbglgccqrgfocrhhqaeshvmeedfbpom
+34 weiciaxmhwcstccgcqdxtrrogqopmpfw
+35 mbhkhcckjyixmiigkxbnecudokjbeicj
+36 aqqxkgzofwfrbcalghevzsvwfoqqclfd
+37 lmlrklctkfdmmbimoidqmjwvvkznrxuc
+38 pttpqdpzmqgmshopdslzwhgqqnaudoso
+39 kudxdmbnzinkdnhgqlqldyutretawafv
+40 aldhtvqgwjqqncanmwwxwgxximlbhndc
+41 tmpwmvtrdtpntmckjgmatlntvueowman
+42 kweqlgcjrtkgixhcufbalkuxboaaxanj
+43 ckblvhvqpmxxswxhguvydnwlmagvrcel
+44 bnslhbsizkwiabidyxxcebgyjqzeillv
+45 oekkqsitcgxbhjfuwnayfomcmskszyni
+46 oaosspeldwslgjydxxnguutjpwguksya
+47 mmpvtdygmqkgdjxxeiuepwqqqldgqeck
+48 dneqblbrcjghidweohosqdckakxekmea
+49 ltccwerswvnmxkdabfekkrqqmzpinnht
+50 gbhgsukajreaakbrzxifntujizwwaakt
+51 qpusiyvbyemdwbxguolaabsffzasswze
+52 inlremmpenkaslicqxujaifcbqefvcal
+53 avugwbsnslaigniasqtazbzhunvetszd
+54 smtbftkgbioskuulgofbfktgtradqkfd
+55 riphueuegmzqlgghmncgfxhpralvbowy
+56 yhhevwpvmfoccefpcvmfuuibpeoxjuwg
+57 kjbvsvanapmvakzattmoutdkeroxncpq
+58 dqggwpewogaqzdpgqnbhaxvydztxtquh
+59 ggcbqfekbifuzelgftegkqzdquwulton
+
+
+FINAL STRING:ggcbqfekbifuzelgftegkqzdquwulton
+
+STEP 5
+Keep letters m,o,n,a,r,c,h,f,l,y from the final string, remove the rest.
+'cfflflon'
+
+STEP 6:
+Reverse letters, add 3197160 to it, and add last 5 letters of (ggcbqfekbifuzelgftegkqzdquwulton) (ulton)
+Result: cfflflon3197160ulton
+
+Step7:
+add .com at the end (cfflflon3197160ulton.com). 
+
+Step8
+The puzzle was originally posted in twitter, if you look at the arrow - its pointing to Monarchs logo. This stands for adding "flutterchain" to
+the domain. Final domain: cfflflon3197160ulton.flutterchain.com
+
+Private key is on the site.
+
